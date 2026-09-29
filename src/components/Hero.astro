@@ -1,0 +1,52 @@
+---
+import SocialPill from "../components/SocialPill.astro";
+import IconLinkedin from "../components/icons/linkedin.svg";
+import IconGithub from "../components/icons/github_dark.svg";
+import fotoCurriculum from "../assets/FOTO-CURRICULUM-1.png";
+import Bagde from "../components/Bagde.astro";
+---
+
+<div class="flex items-center gap-3 row">
+    <div
+        class="w-20 h-20 flex justify-center items-center border-2 border-blue-400 rounded-full shadow-md hover:shadow-[0_0_25px_rgba(59,130,246,0.6)] transition-shadow duration-300"
+    >
+        <img
+            src={fotoCurriculum.src}
+            alt="logo"
+            class="w-full h-full object-cover bg-gray-300 rounded-full"
+        />
+    </div>
+    <Bagde> Disponible para trabajar </Bagde>
+</div>
+
+<h1 class="text-white font-bold text-5xl flex gap-2">
+    Hey, soy
+    <span class="text-blue-400"> Javi </span>
+</h1>
+<p class="text-white text-2xl flex gap-2 mt-3">
+    Estudiante de
+    <span class="text-blue-400 font-semibold">Ingenieria de Software</span>
+</p>
+
+<p class="text-gray-400 text-lg mt-5 leading-relaxed max-w-xl">
+    Me apasiona el desarrollo de software y crear proyectos que resuelvan
+    problemas reales. Tengo experiencia desarrollando scripts para <span
+        class="text-white font-medium">FiveM</span
+    > y actualmente estoy ampliando mis conocimientos en <span
+        class="text-white font-medium">desarrollo web</span
+    > con tecnologías modernas.
+</p>
+
+<nav class="flex gap-x-2 mt-10">
+    <SocialPill
+        href="https://www.linkedin.com/in/javier-de-la-cruz-sánchez/"
+        target="_blank"
+    >
+        <IconLinkedin class="w-4 h-4" />
+        Linkedin
+    </SocialPill>
+    <SocialPill href="https://github.com/023javi" target="_blank">
+        <IconGithub class="w-4 h-4" />
+        Github
+    </SocialPill>
+</nav>

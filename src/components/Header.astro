@@ -1,0 +1,89 @@
+---
+import Logo from "../assets/logo.svg";
+---
+
+<header class="fixed top-0 left-0 right-0 z-50 flex justify-center">
+    <div
+        class="flex my-6 rounded-full justify-around gap-2 py-1 px-4 items-center
+        bg-white/10 border border-white/30 backdrop-blur-sm
+        text-sm font-medium"
+    >
+        <div class="lg:w-[720px] w-full flex items-center">
+            <img src={Logo.src} alt="Logo" class="w-10 h-10" />
+
+            <nav class="flex gap-2 mx-auto items-center">
+                <a
+                    href="#about"
+                    data-section="about"
+                    class="nav-link px-2 py-1 rounded-full transition-colors duration-300"
+                >
+                    Sobre mí
+                </a>
+
+                <a
+                    href="#experience"
+                    data-section="experience"
+                    class="nav-link px-2 py-1 rounded-full transition-colors duration-300"
+                >
+                    Experiencia
+                </a>
+
+                <a
+                    href="#projects"
+                    data-section="projects"
+                    class="nav-link px-2 py-1 rounded-full transition-colors duration-300"
+                >
+                    Proyectos
+                </a>
+
+                <a
+                    href="#contact"
+                    data-section="contact"
+                    class="nav-link px-2 py-1 rounded-full transition-colors duration-300"
+                >
+                    Contacto
+                </a>
+            </nav>
+
+            <button
+                class="border border-white/30 rounded-full px-4 py-1
+                hover:border-blue-400 hover:text-blue-400
+                transition-colors duration-300 cursor-pointer"
+            >
+                Contactame
+            </button>
+        </div>
+    </div>
+</header>
+
+<script>
+    const sections = document.querySelectorAll("section[id]");
+    const navLinks = document.querySelectorAll(".nav-link");
+
+    const observer = new IntersectionObserver(
+        (entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    const currentSection = entry.target.id;
+
+                    navLinks.forEach((link) => {
+                        link.classList.remove("text-blue-400");
+
+                        if (
+                            link.getAttribute("data-section") === currentSection
+                        ) {
+                            link.classList.add("text-blue-400");
+                        }
+                    });
+                }
+            });
+        },
+        {
+            rootMargin: "-40% 0px -50% 0px",
+        },
+    );
+
+    sections.forEach((section) => {
+        observer.observe(section);
+    });
+</script>

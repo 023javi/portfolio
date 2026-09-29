@@ -1,0 +1,54 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Hero from "../components/Hero.astro";
+import Timeline from "../components/Timeline.astro";
+import IconBag from "../components/icons/bag.svg";
+import IconFolder from "../components/icons/folder.svg";
+import Projects from "../components/Projects.astro";
+import "../styles/global.css";
+---
+
+<Layout title="Javi Developer">
+	<section class="w-full mx-auto lg:w-[720px] py-30">
+		<section id="about" class="mb-5">
+			<Hero />
+		</section>
+
+		<section id="experience" class="my-15 w-full">
+			<h1
+				class="text-white font-bold text-3xl mb-5 flex flex-row items-center gap-2"
+			>
+				<IconBag /> Experiencia Laboral
+			</h1>
+			<Timeline />
+		</section>
+
+		<section id="projects" class="my-15 w-full">
+			<h1
+				class="text-white font-bold text-3xl mb-5 flex flex-row items-center gap-2"
+			>
+				<IconFolder /> Proyectos
+			</h1>
+
+			<Projects />
+		</section>
+
+		<section id="habilidades" class="w-full">
+			<h1
+				class="text-white font-bold text-3xl mb-5 flex flex-row items-center gap-2"
+			>
+				<IconFolder /> Habilidades
+			</h1>
+		</section>
+
+		<footer id="contact" class="my-10 w-full">
+			<section id="contact" class="my-15 w-full">
+				<h1
+					class="text-white font-bold text-3xl mb-5 flex flex-row items-center gap-2"
+				>
+					<IconFolder /> Contacto
+				</h1>
+			</section>
+		</footer>
+	</section>
+</Layout>

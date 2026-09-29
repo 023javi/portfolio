@@ -1,0 +1,48 @@
+---
+import Card from "../components/Card.astro";
+import resmon_dj from "../assets/resmon_dj.png";
+const projects = [
+    {
+        image: resmon_dj.src,
+        title: "Resmon DJ",
+        description: "Sistema de dj de servidores FiveM.",
+        badge: "FiveM",
+        link: "https://github.com/023javi/resmon-dj",
+    },
+    {
+        image: resmon_dj.src,
+        title: "Resmon DJ",
+        description: "Sistema de dj de servidores FiveM.",
+        badge: "FiveM",
+        link: "https://github.com/023javi/resmon-dj",
+    },
+    {
+        image: resmon_dj.src,
+        title: "Resmon DJ",
+        description: "Sistema de dj de servidores FiveM.",
+        badge: "FiveM",
+        link: "https://github.com/023javi/resmon-dj",
+    },
+    {
+        image: resmon_dj.src,
+        title: "Resmon DJ",
+        description: "Sistema de dj de servidores FiveM.",
+        badge: "FiveM",
+        link: "https://github.com/023javi/resmon-dj",
+    },
+];
+---
+
+<div class="flex flex-row flex-wrap gap-4 justify-between">
+    {
+        projects.map((project) => (
+            <Card
+                image={project.image}
+                title={project.title}
+                description={project.description}
+                badge={project.badge}
+                link={project.link}
+            />
+        ))
+    }
+</div>
