@@ -1,89 +1,102 @@
 ---
 import Logo from "../assets/logo.svg";
+import Bagde from "../components/Bagde.astro";
+
+const elements = [
+    {
+        href: "#about",
+        text: "Sobre mí",
+    },
+    {
+        href: "#experience",
+        text: "Experiencia",
+    },
+    {
+        href: "#projects",
+        text: "Proyectos",
+    },
+    {
+        href: "#contact",
+        text: "Contacto",
+    },
+];
 ---
 
 <header class="fixed top-0 left-0 right-0 z-50 flex justify-center">
-    <div
-        class="flex my-6 rounded-full justify-around gap-2 py-1 px-4 items-center
+    <div class="flex items-center gap-5">
+        <div
+            class="flex my-6 rounded-full justify-around gap-2 py-1 px-4 items-center
         bg-white/10 border border-white/30 backdrop-blur-sm
         text-sm font-medium"
-    >
-        <div class="lg:w-[720px] w-full flex items-center">
-            <img src={Logo.src} alt="Logo" class="w-10 h-10" />
-
-            <nav class="flex gap-2 mx-auto items-center">
-                <a
-                    href="#about"
-                    data-section="about"
-                    class="nav-link px-2 py-1 rounded-full transition-colors duration-300"
-                >
-                    Sobre mí
-                </a>
-
-                <a
-                    href="#experience"
-                    data-section="experience"
-                    class="nav-link px-2 py-1 rounded-full transition-colors duration-300"
-                >
-                    Experiencia
-                </a>
-
-                <a
-                    href="#projects"
-                    data-section="projects"
-                    class="nav-link px-2 py-1 rounded-full transition-colors duration-300"
-                >
-                    Proyectos
-                </a>
-
-                <a
-                    href="#contact"
-                    data-section="contact"
-                    class="nav-link px-2 py-1 rounded-full transition-colors duration-300"
-                >
-                    Contacto
-                </a>
-            </nav>
-
-            <button
-                class="border border-white/30 rounded-full px-4 py-1
-                hover:border-blue-400 hover:text-blue-400
-                transition-colors duration-300 cursor-pointer"
-            >
-                Contactame
-            </button>
+        >
+            <div class="w-full flex items-center">
+                <nav class="flex gap-2 mx-auto items-center">
+                    {
+                        elements.map((element) => (
+                            <a
+                                href={element.href}
+                                data-section={element.href.slice(1)}
+                                class="nav-link px-3 py-1.5 rounded-full transition-all duration-300 ease-out
+                    hover:bg-white/20 hover:text-blue-300"
+                            >
+                                {element.text}
+                            </a>
+                        ))
+                    }
+                </nav>
+            </div>
         </div>
+
+        <img
+            src={Logo.src}
+            alt="Logo"
+            class="w-10 h-10 rounded-full bg-white/10 border border-white/30 px-1 py-1"
+        />
     </div>
 </header>
 
 <script>
-    const sections = document.querySelectorAll("section[id]");
+    const sections = document.querySelectorAll(
+        "#about, #experience, #projects, #contact",
+    );
+
     const navLinks = document.querySelectorAll(".nav-link");
+
+    const setActiveLink = (sectionId) => {
+        navLinks.forEach((link) => {
+            link.classList.remove("bg-blue-800", "text-white");
+
+            if (link.getAttribute("data-section") === sectionId) {
+                link.classList.add("bg-blue-800", "text-white");
+            }
+        });
+    };
 
     const observer = new IntersectionObserver(
         (entries) => {
             entries.forEach((entry) => {
                 if (entry.isIntersecting) {
-                    const currentSection = entry.target.id;
-
-                    navLinks.forEach((link) => {
-                        link.classList.remove("text-blue-400");
-
-                        if (
-                            link.getAttribute("data-section") === currentSection
-                        ) {
-                            link.classList.add("text-blue-400");
-                        }
-                    });
+                    setActiveLink(entry.target.id);
                 }
             });
         },
         {
-            rootMargin: "-40% 0px -50% 0px",
+            rootMargin: "-30% 0px -30% 0px",
+            threshold: 0,
         },
     );
 
     sections.forEach((section) => {
         observer.observe(section);
+    });
+
+    window.addEventListener("scroll", () => {
+        const isAtBottom =
+            window.innerHeight + window.scrollY >=
+            document.documentElement.scrollHeight - 10;
+
+        if (isAtBottom) {
+            setActiveLink("contact");
+        }
     });
 </script>

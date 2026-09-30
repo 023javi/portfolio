@@ -1,0 +1,60 @@
+---
+import Ability from "../components/Ability.astro";
+
+import AstroIcon from "../components/icons/astro.svg";
+import JavascriptIcon from "../components/icons/javascript.svg";
+import PythonIcon from "../components/icons/python.svg";
+import GitIcon from "../components/icons/git.svg";
+import LuaIcon from "../components/icons/lua.svg";
+import MySqlIcon from "../components/icons/mysql-icon-dark.svg";
+import CIcon from "../components/icons/c.svg";
+import CSharpIcon from "../components/icons/csharp.svg";
+import TailwindIcon from "../components/icons/tailwindcss.svg";
+
+const abilities = [
+    {
+        name: "Astro",
+        image: AstroIcon.src,
+    },
+    {
+        name: "JavaScript",
+        image: JavascriptIcon.src,
+    },
+    {
+        name: "Python",
+        image: PythonIcon.src,
+    },
+    {
+        name: "Git",
+        image: GitIcon.src,
+    },
+    {
+        name: "Lua",
+        image: LuaIcon.src,
+    },
+    {
+        name: "MySql",
+        image: MySqlIcon.src,
+    },
+    {
+        name: "C",
+        image: CIcon.src,
+    },
+    {
+        name: "CSharp",
+        image: CSharpIcon.src,
+    },
+    {
+        name: "Tailwind",
+        image: TailwindIcon.src,
+    },
+];
+---
+
+<div class="flex flex-wrap gap-4">
+    {
+        abilities.map((ability) => (
+            <Ability name={ability.name} image={ability.image} />
+        ))
+    }
+</div>

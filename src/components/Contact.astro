@@ -1,0 +1,28 @@
+---
+import SocialPill from "./SocialPill.astro";
+import IconGithub from "../components/icons/github_dark.svg";
+import IconLinkedin from "../components/icons/linkedin.svg";
+import IconEmail from "../components/icons/gmail.svg";
+---
+
+<nav class="flex gap-x-2 items-center mt-10">
+    <a class="flex justify-center items-center text-gray-400 text-md max-w-xl">
+        Siempre abierto a nuevos proyectos, ideas o simplemente charlar sobre
+        tecnologías.
+    </a>
+    <SocialPill
+        href="https://www.linkedin.com/in/javier-de-la-cruz-sánchez/"
+        target="_blank"
+    >
+        <IconLinkedin class="w-4 h-4" />
+        Linkedin
+    </SocialPill>
+    <SocialPill href="https://github.com/023javi" target="_blank">
+        <IconGithub class="w-4 h-4" />
+        Github
+    </SocialPill>
+    <SocialPill href="mailto:javier023javi@gmail.com" target="_blank">
+        <IconEmail class="w-4 h-4" />
+        Email
+    </SocialPill>
+</nav>

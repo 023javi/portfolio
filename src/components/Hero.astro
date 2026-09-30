@@ -1,52 +1,108 @@
 ---
-import SocialPill from "../components/SocialPill.astro";
-import IconLinkedin from "../components/icons/linkedin.svg";
-import IconGithub from "../components/icons/github_dark.svg";
 import fotoCurriculum from "../assets/FOTO-CURRICULUM-1.png";
 import Bagde from "../components/Bagde.astro";
 ---
 
-<div class="flex items-center gap-3 row">
-    <div
-        class="w-20 h-20 flex justify-center items-center border-2 border-blue-400 rounded-full shadow-md hover:shadow-[0_0_25px_rgba(59,130,246,0.6)] transition-shadow duration-300"
-    >
-        <img
-            src={fotoCurriculum.src}
-            alt="logo"
-            class="w-full h-full object-cover bg-gray-300 rounded-full"
-        />
+<div
+    class="flex flex-col-reverse md:flex-row
+    items-center md:items-end
+    justify-between
+    gap-10 md:gap-16
+    w-full"
+>
+    <!-- Texto -->
+    <div class="flex flex-col gap-5 flex-1">
+        <div class="flex items-center gap-2">
+            <span class="w-8 h-px bg-blue-400"></span>
+
+            <span
+                class="text-blue-400 text-sm font-medium tracking-widest uppercase"
+            >
+                Software Developer
+            </span>
+        </div>
+
+        <h1
+            class="text-white
+            text-5xl sm:text-6xl md:text-7xl
+            font-bold
+            tracking-tight
+            leading-[0.95]"
+        >
+            Javier
+            <span class="block text-blue-400"> de la Cruz </span>
+        </h1>
+
+        <p
+            class="text-gray-400
+            text-lg sm:text-xl
+            leading-relaxed
+            max-w-xl"
+        >
+            Estudiante de
+            <span class="text-white font-medium"> Ingeniería de Software </span>
+            con experiencia desarrollando sistemas y scripts para
+            <span class="text-blue-400 font-medium"> FiveM </span>.
+        </p>
+
+        <div class="mt-2">
+            <Bagde> Disponible para trabajar </Bagde>
+        </div>
     </div>
-    <Bagde> Disponible para trabajar </Bagde>
+
+    <!-- Foto -->
+    <div class="relative group shrink-0">
+        <!-- Glow -->
+        <div
+            class="absolute -inset-3
+            bg-blue-500/20
+            blur-2xl
+            opacity-0
+            group-hover:opacity-100
+            transition-opacity duration-500"
+        >
+        </div>
+
+        <!-- Marco -->
+        <div
+            class="relative
+            w-48 h-56
+            sm:w-56 sm:h-64
+            md:w-60 md:h-72
+            overflow-hidden
+            rounded-2xl
+            border border-white/10
+            bg-white/[0.03]
+            shadow-2xl
+            transition-all duration-500
+            group-hover:-translate-y-2
+            group-hover:border-blue-400/50"
+        >
+            <img
+                src={fotoCurriculum.src}
+                alt="Javier de la Cruz"
+                class="w-full h-full
+                object-cover
+                transition-transform duration-700
+                group-hover:scale-105"
+            />
+        </div>
+
+        <!-- Detalle decorativo -->
+        <div
+            class="absolute -bottom-3 -left-3
+            w-12 h-12
+            border-l-2 border-b-2
+            border-blue-400/70"
+        >
+        </div>
+
+        <div
+            class="absolute -top-3 -right-3
+            w-12 h-12
+            border-t-2 border-r-2
+            border-blue-400/70"
+        >
+        </div>
+    </div>
 </div>
-
-<h1 class="text-white font-bold text-5xl flex gap-2">
-    Hey, soy
-    <span class="text-blue-400"> Javi </span>
-</h1>
-<p class="text-white text-2xl flex gap-2 mt-3">
-    Estudiante de
-    <span class="text-blue-400 font-semibold">Ingenieria de Software</span>
-</p>
-
-<p class="text-gray-400 text-lg mt-5 leading-relaxed max-w-xl">
-    Me apasiona el desarrollo de software y crear proyectos que resuelvan
-    problemas reales. Tengo experiencia desarrollando scripts para <span
-        class="text-white font-medium">FiveM</span
-    > y actualmente estoy ampliando mis conocimientos en <span
-        class="text-white font-medium">desarrollo web</span
-    > con tecnologías modernas.
-</p>
-
-<nav class="flex gap-x-2 mt-10">
-    <SocialPill
-        href="https://www.linkedin.com/in/javier-de-la-cruz-sánchez/"
-        target="_blank"
-    >
-        <IconLinkedin class="w-4 h-4" />
-        Linkedin
-    </SocialPill>
-    <SocialPill href="https://github.com/023javi" target="_blank">
-        <IconGithub class="w-4 h-4" />
-        Github
-    </SocialPill>
-</nav>

@@ -5,16 +5,20 @@ import Timeline from "../components/Timeline.astro";
 import IconBag from "../components/icons/bag.svg";
 import IconFolder from "../components/icons/folder.svg";
 import Projects from "../components/Projects.astro";
+import Contact from "../components/Contact.astro";
+import IconPhone from "../components/icons/phone.svg";
+import Footer from "../components/Footer.astro";
+import Habilities from "../components/Habilities.astro";
 import "../styles/global.css";
 ---
 
 <Layout title="Javi Developer">
-	<section class="w-full mx-auto lg:w-[720px] py-30">
-		<section id="about" class="mb-5">
+	<section class="w-full mx-auto lg:w-[1000px] py-30">
+		<section id="about" class="mb-5 scroll-mt-20">
 			<Hero />
 		</section>
 
-		<section id="experience" class="my-15 w-full">
+		<section id="experience" class="my-15 w-full scroll-mt-20">
 			<h1
 				class="text-white font-bold text-3xl mb-5 flex flex-row items-center gap-2"
 			>
@@ -23,7 +27,7 @@ import "../styles/global.css";
 			<Timeline />
 		</section>
 
-		<section id="projects" class="my-15 w-full">
+		<section id="projects" class="my-15 w-full scroll-mt-20">
 			<h1
 				class="text-white font-bold text-3xl mb-5 flex flex-row items-center gap-2"
 			>
@@ -33,22 +37,26 @@ import "../styles/global.css";
 			<Projects />
 		</section>
 
-		<section id="habilidades" class="w-full">
+		<section id="habilidades" class="w-full scroll-mt-20">
 			<h1
 				class="text-white font-bold text-3xl mb-5 flex flex-row items-center gap-2"
 			>
 				<IconFolder /> Habilidades
 			</h1>
+
+			<Habilities />
 		</section>
 
-		<footer id="contact" class="my-10 w-full">
-			<section id="contact" class="my-15 w-full">
-				<h1
-					class="text-white font-bold text-3xl mb-5 flex flex-row items-center gap-2"
-				>
-					<IconFolder /> Contacto
-				</h1>
-			</section>
-		</footer>
+		<section id="contact" class="my-15 w-full scroll-mt-20">
+			<h1
+				class="text-white font-bold text-3xl mb-5 flex flex-row items-center gap-2"
+			>
+				<IconPhone /> Contacto
+			</h1>
+
+			<Contact />
+		</section>
+
+		<Footer />
 	</section>
 </Layout>
